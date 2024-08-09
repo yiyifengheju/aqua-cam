@@ -17,14 +17,14 @@ from config import INIT
 
 def page_init():
     st.set_page_config(
-        page_title="koko-Tools",
+        page_title="Aqua-Cam",
         page_icon="🦀",
         layout="wide",
         initial_sidebar_state="auto",
         menu_items={
             # 'Get Help': 'https://www.extremelycoolapp.com/help',
             # 'Report a bug': "https://www.extremelycoolapp.com/bug",
-            'About': "#### Koko-Tools"
+            'About': "#### Aqua-Cam"
         }
     )
     st.title('🦀 Koko-Tools')
@@ -40,9 +40,17 @@ def page_init():
 
 
 def page_main():
+    st.markdown('### RAF工具')
     st.page_link("pages/1_🍅_RAF重命名.py", label="RAF重命名", icon="🍅")
+    st.markdown('---')
+
+    st.markdown('### WEBP工具')
     st.page_link("pages/2_🍭_压缩Webp.py", label="压缩Webp", icon="🍭")
     st.page_link("pages/3_🍿_图片水印.py", label="图片水印", icon="🍿")
+    st.markdown('---')
+
+    st.markdown('### MkDocs工具')
+    st.page_link("pages/4_👺_Auto-MkDocs.py", label="Auto-MkDocs", icon="👺")
 
 
 if __name__ == '__main__':
