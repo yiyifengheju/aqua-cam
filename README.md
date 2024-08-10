@@ -1,12 +1,12 @@
 # Aqua-Cam
 
-摄影后处理相关的工具，适用于FujiFilm X-T30。
-
-> 基于Streamlit和koko-learn(自开发)。
-
 [![GitHub License](https://img.shields.io/github/license/yiyifengheju/aqua-cam)](LICENSE)
 [![GitHub Stars](https://img.shields.io/github/stars/yiyifengheju/aqua-cam)](https://github.com/yiyifengheju/aqua-cam)
 [![GitHub Forks](https://img.shields.io/github/forks/yiyifengheju/aqua-cam)](https://github.com/yiyifengheju/aqua-cam)
+
+摄影后处理相关的工具，适用于FujiFilm X-T30。
+
+> 基于Streamlit和koko-learn(自开发)。
 
 ## 壹丨简介
 
