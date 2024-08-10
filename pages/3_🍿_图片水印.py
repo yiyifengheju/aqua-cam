@@ -15,7 +15,6 @@ import os
 import streamlit as st
 from config import INIT
 
-
 from koko_learn.PicTools import WaterMarkClass
 
 
@@ -36,23 +35,7 @@ def page_init():
 
 
 def page_main():
-    col1, col2, col3, col4 = st.columns(4)
-    with col1:
-        st.image('./images/DSCF9285.webp',
-                 caption='样式 0')
-    with col2:
-        st.image('./images/DSCF9304.webp',
-                 caption='样式 1')
-    with col3:
-        st.image('./images/DSCF9302.webp',
-                 caption='样式 2')
-    with col4:
-        st.image('./images/DSCF9307.webp',
-                 caption='样式 3')
-
-    st.markdown('---')
-
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2, col3, col4, col5 = st.columns(5)
     with col1:
         limit_size = st.text_input('限制大小/kb',
                                    key='limit_size',
@@ -76,6 +59,12 @@ def page_main():
                                 index=0,
                                 key='cam_make'
                                 )
+    with col5:
+        max_workers = st.selectbox("工作核心数",
+                                   (str(INIT.MAX_WORKERS), str(INIT.MAX_WORKERS // 2), str(INIT.MAX_WORKERS // 4)),
+                                   index=0,
+                                   key='max_workers'
+                                   )
     col1, col2 = st.columns(2)
     with col1:
         img_src = st.text_input('图片路径',
@@ -85,7 +74,8 @@ def page_main():
     if st.button('生成水印', key='img_btn'):
         if img_src:
             tmp = os.path.abspath(os.path.join(img_src, os.pardir))
-            img_dst = f'{tmp}/3_MARKER'
+            folder_name = img_src.split('/')[-1]
+            img_dst = f'{tmp}/{folder_name}_MARKER'
             if not os.path.exists(img_dst):
                 os.mkdir(img_dst)
 
@@ -97,7 +87,7 @@ def page_main():
                                     style_idx=eval(style_idx),
                                     camera_make=cam_make,
                                     init_info=None,
-                                    max_workers=INIT.MAX_WORKERS
+                                    max_workers=eval(max_workers)
                                     )
                 # info = wm.run()
                 wm.run()
@@ -105,6 +95,24 @@ def page_main():
                 st.success('压缩完成！')
                 with st.expander("压缩信息"):
                     st.write(info)
+
+    st.markdown('---')
+    st.markdown('### 实现说明')
+    st.markdown('1. 为图片添加水印')
+    st.markdown('2. 压缩到限定宽度和大小(基于`pillow`)')
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        st.image('./images/DSCF9285.webp',
+                 caption='样式 0')
+    with col2:
+        st.image('./images/DSCF9304.webp',
+                 caption='样式 1')
+    with col3:
+        st.image('./images/DSCF9302.webp',
+                 caption='样式 2')
+    with col4:
+        st.image('./images/DSCF9307.webp',
+                 caption='样式 3')
 
 
 if __name__ == '__main__':

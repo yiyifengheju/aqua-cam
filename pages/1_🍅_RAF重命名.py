@@ -61,9 +61,10 @@ def page_main():
                 os.startfile(raf_dst)
     with col3:
         st.markdown('### 实现说明')
-        st.markdown('功能1：基于ExifTool读取RAF的创建日期，重命名文件。如：`DSCF0061.RAF`重命名为`20240721_DSCF0061.RAF`')
-        st.markdown('功能2：基于ExifTool修改相机信息，以支持在Capture One中解锁更多胶片模拟。'
-                    '如：原相机`X-T30`修改为`X-T50`，解锁`CLASSIC Neg`、`NOSTALGIC Neg`、'
+        st.markdown('##### 功能1：基于ExifTool读取RAF的创建日期，重命名文件。')
+        st.markdown('如：`DSCF0061.RAF`重命名为`20240721_DSCF0061.RAF`')
+        st.markdown('##### 功能2：基于ExifTool修改相机信息，以支持在Capture One中解锁更多胶片模拟。')
+        st.markdown('如：原相机`X-T30`修改为`X-T50`，解锁`CLASSIC Neg`、`NOSTALGIC Neg`、'
                     '`ETERNA BLEACH BYPASS`、`REALA ACE`')
 
 

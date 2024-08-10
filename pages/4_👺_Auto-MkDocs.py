@@ -36,9 +36,13 @@ def page_init():
 
 
 def page_main():
-    col1, col2 = st.columns(2)
+    col1, col3, col2 = st.columns((4.5, 1, 4.5))
+    with col2:
+        st.markdown('### 实现说明')
+        st.markdown('1. 为图片添加水印')
+        st.markdown('2. 压缩到限定宽度和大小(基于`pillow`)')
     with col1:
-        col11, col12, col13 = st.columns(3)
+        col11, col12, col13, col4 = st.columns(4)
         with col11:
             limit_size = st.text_input('限制大小/kb',
                                        key='limit_size',
@@ -50,6 +54,13 @@ def page_main():
                                         value='2560'
                                         )
         with col13:
+            max_workers = st.selectbox("工作核心数",
+                                       (str(INIT.MAX_WORKERS), str(INIT.MAX_WORKERS // 2), str(INIT.MAX_WORKERS // 4)),
+                                       index=0,
+                                       key='max_workers'
+                                       )
+
+        with col4:
             if_compress = st.radio('重新压缩WebP',
                                    ['True', 'False'],
                                    index=0,
@@ -68,6 +79,7 @@ def page_main():
                     st.session_state.am = AutoMkdocs(path_src=img_src,
                                                      limit_size=int(limit_size),
                                                      limit_width=int(limit_width),
+                                                     max_workers=int(max_workers)
                                                      )
                 if if_compress:
                     st.session_state.am.run(is_auto=False)

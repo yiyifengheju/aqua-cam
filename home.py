@@ -27,7 +27,7 @@ def page_init():
             'About': "#### Aqua-Cam"
         }
     )
-    st.title('🦀 Koko-Tools')
+    st.title('🦀 Aqua-Cam')
     st.caption(INIT.AUTHOR)
     st.markdown(
         """
@@ -44,7 +44,7 @@ def page_main():
     st.page_link("pages/1_🍅_RAF重命名.py", label="RAF重命名", icon="🍅")
     st.markdown('---')
 
-    st.markdown('### WEBP工具')
+    st.markdown('### WebP工具')
     st.page_link("pages/2_🍭_压缩Webp.py", label="压缩Webp", icon="🍭")
     st.page_link("pages/3_🍿_图片水印.py", label="图片水印", icon="🍿")
     st.markdown('---')
