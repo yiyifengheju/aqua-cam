@@ -61,7 +61,8 @@ def page_main_1():
 
     if st.button('压缩Webp', key='img_btn'):
         if img_src:
-            tmp = os.path.abspath(os.path.join(img_src, os.pardir))
+            # tmp = os.path.abspath(os.path.join(img_src, os.pardir))
+            tmp = os.path.abspath(img_src)
             img_dst = f'{tmp}/2_WEBP'
             if not os.path.exists(img_dst):
                 os.mkdir(img_dst)
